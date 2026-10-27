@@ -1,0 +1,248 @@
+<!DOCTY<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitio Web Institucional – Miguela Rodríguez Araujo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #1b4332;
+            color: #ffffff;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.3rem;
+        }
+        header p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        nav {
+            background-color: #2d6a4f;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 0.5rem;
+        }
+        nav button {
+            background: none;
+            border: none;
+            color: #ffffff;
+            padding: 0.5rem 1rem;
+            font-size: 0.95rem;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        nav button:hover, nav button.activo {
+            background-color: #40916c;
+            font-weight: bold;
+        }
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            background-color: #ffffff;
+            padding: 2rem;
+            border: 1px solid #dddddd;
+            border-radius: 6px;
+        }
+        .pagina {
+            display: none;
+        }
+        .pagina.visible {
+            display: block;
+        }
+        h2 {
+            color: #1b4332;
+            border-bottom: 2px solid #2d6a4f;
+            padding-bottom: 0.3rem;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        h3 {
+            color: #2d6a4f;
+            margin-top: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        p {
+            margin-bottom: 1rem;
+        }
+        ul, ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        li {
+            margin-bottom: 0.3rem;
+        }
+        .estado {
+            background-color: #e8f5e9;
+            color: #1b4332;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.85rem;
+            font-weight: bold;
+            border-radius: 3px;
+            display: inline-block;
+            margin-bottom: 1rem;
+            border: 1px solid #c8e6c9;
+        }
+        .equipo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .tarjeta {
+            border: 1px solid #cccccc;
+            background-color: #fafafa;
+            padding: 1rem;
+            border-radius: 4px;
+        }
+        .tarjeta h4 {
+            color: #1b4332;
+            margin-bottom: 0.2rem;
+            font-size: 1rem;
+        }
+        .tarjeta .rol {
+            color: #2d6a4f;
+            font-weight: bold;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.85rem;
+            color: #666666;
+            background-color: #f0f0f0;
+            border-top: 1px solid #dddddd;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Proyecto Dinamico</h1>
+        <p>Promoción 1Batin</p>
+    </header>
+
+    <nav>      
+        <button onclick="cambiarPagina('inicio', this)" class="activo">Inicio</button>
+        <button onclick="cambiarPagina('proyecto', this)">El proyecto</button>
+        <button onclick="cambiarPagina('equipo', this)">Equipo</button>
+    </nav>
+
+    <main>
+        <!-- PÁGINA 1: INICIO -->
+        <section id="inicio" class="pagina visible">
+            <span class="estado">Etapa 1 de 3 – Anteproyecto</span>
+            <h2>Presentación</h2>
+            <p>El presente anteproyecto corresponde a la primera etapa del <strong>Proyecto de Promoción</strong> del equipo. Surge de la necesidad de dinamizar las clases en el Colegio Miguela Rodríguez Araujo, donde actualmente se utilizan pizarras y fotocopias como recursos principales que, aunque funcionales, resultan monótonos y limitan la participación activa de los estudiantes.</p>
+
+            <p>La propuesta consiste en la compra de un <strong>proyector escolar</strong>, que permitirá mostrar presentaciones, videos, gráficos y materiales interactivos, favoreciendo la comprensión y el aprendizaje significativo enmarcado en el ciclo institucional del <strong>BATIN</strong>.</p>
+            
+            <h3>Nuestros objetivos</h3>
+            <ul>
+                <li>Identificar la necesidad de recursos visuales en el aula.</li>
+                <li>Evaluar la viabilidad técnica, legal y económica de la compra.</li>
+                <li>Elaborar un anteproyecto escrito, un sitio web informativo y una presentación de lanzamiento.</li>
+                <li>Publicar un sitio web de seguimiento con QR para acompañar el proyecto durante los tres años.</li>
+            </ul>
+
+            <h3>Importancia del proyecto</h3>
+            <p>Este proyecto es de suma importancia porque busca superar la monotonía de las clases tradicionales. La incorporación de un proyector permitirá integrar presentaciones, videos y gráficos interactivos, aumentando la motivación estudiantil y fortaleciendo la calidad de los aprendizajes en el aula.</p>
+        </section>
+
+        <!-- PÁGINA 2: EL PROYECTO -->
+        <section id="proyecto" class="pagina">
+            <h2>El proyecto</h2>
+
+            <h3>El problema</h3>
+            <p>Las clases en el colegio se desarrollan principalmente con recursos tradicionales como pizarras y fotocopias. Esta falta de herramientas audiovisuales genera monotonía y baja motivación en los estudiantes, limitando su participación activa y la comprensión de los contenidos.</p>
+
+            <h3>Rendimiento académico</h3>
+            <p>Mejora sustancial en la retención y comprensión de conceptos abstractos gracias al uso de esquemas visuales, infografías y material multimedia.</p>
+
+            <h3>Impacto Esperado</h3>
+            <ul>
+                <li><strong>Mejora del aprendizaje:</strong> Facilita la comprensión de conceptos mediante recursos visuales y multimedia.</li>
+                <li><strong>Mayor participación:</strong> Aumenta la motivación de los estudiantes al dejar atrás las clases monótonas.</li>
+                <li><strong>Innovación escolar:</strong> Moderniza las herramientas didácticas del curso dentro del ciclo BATIN.</li>
+		<li><strong>Trabajo en equipo:</strong> Fomenta la responsabilidad, organización y planificación conjunta entre los estudiantes.</li>
+            </ul>
+
+            <h3>Plan a 3 años</h3>
+            <ol>
+                <li><strong>1º año (actual):</strong> Desarrollo del anteproyecto, estudio de viabilidad y publicación del sitio web de seguimiento.</li>
+                <li><strong>2º año:</strong>Elaboración de un prototipo funcional y actualización de evidencias en la plataforma.</li>
+                <li><strong>3º año:</strong>Finalización del sistema, documentación técnica completa y defensa final.</li>
+            </ol>
+        </section>
+
+        <!-- PÁGINA 3: Alumnos y Roles -->
+        <section id="equipo" class="pagina">
+            <h2>Equipo</h2>
+            <p>Somos tres estudiantes del 1º BATIN, trabajando de forma colaborativa. Cada una tiene un rol principal, pero todas participamos en la recolección de información y la revisión final de cada entregable.</p>
+
+            <div class="equipo-grid">
+                <div class="tarjeta">
+                    <h4>Thiago Matias Noguera Duartes</h4>
+                    <div class="rol">Anteproyecto</div>
+                    <p>Redacción, revisión y correcciones del documento.</p>
+                </div>
+                <div class="tarjeta">
+                    <h4>Liz</h4>
+                    <div class="rol">Sitio web</div>
+                    <p>Maquetación, diseño y carga de contenidos al sitio.</p>
+                </div>
+                <div class="tarjeta">
+                    <h4>Ruth</h4>
+                    <div class="rol">Presentación</div>
+                    <p>Armado y ensayo de la exposición final.</p>
+                </div>
+            </div>
+
+            <h3>Metodología de trabajo</h3>
+            <p>O</p>
+        </section>
+    </main>
+
+    <footer>
+        Proyecto de Promoción · 1º BATIN 
+    </footer>
+
+    <script>
+        function cambiarPagina(id, boton) {
+            // Ocultar todas las páginas
+            var paginas = document.querySelectorAll('.pagina');
+            paginas.forEach(function(pagina) {
+                pagina.classList.remove('visible');
+            });
+
+            // Quitar la clase 'activo' de los botones
+            var botones = document.querySelectorAll('nav button');
+            botones.forEach(function(btn) {
+                btn.classList.remove('activo');
+            });
+
+            // Mostrar la página seleccionada y activar el botón
+            document.getElementById(id).classList.add('visible');
+            boton.classList.add('activo');
+        }
+    </script>
+
+</body>
+</html>
