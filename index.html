@@ -1,178 +1,224 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sitio Web Institucional – Miguela Rodríguez Araujo</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            color: #333333;
-            line-height: 1.6;
-        }
-        header {
-            background-color: #1b4332;
-            color: #ffffff;
-            padding: 1.5rem;
-            text-align: center;
-        }
-        header h1 {
-            font-size: 1.5rem;
-            margin-bottom: 0.3rem;
-        }
-        header p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-        nav {
-            background-color: #2d6a4f;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            padding: 0.5rem;
-        }
-        nav button {
-            background: none;
-            border: none;
-            color: #ffffff;
-            padding: 0.5rem 1rem;
-            font-size: 0.95rem;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-        nav button:hover, nav button.activo {
-            background-color: #40916c;
-            font-weight: bold;
-        }
-        main {
-            max-width: 800px;
-            margin: 2rem auto;
-            background-color: #ffffff;
-            padding: 2rem;
-            border: 1px solid #dddddd;
-            border-radius: 6px;
-        }
-        .pagina {
-            display: none;
-        }
-        .pagina.visible {
-            display: block;
-        }
-        h2 {
-            color: #1b4332;
-            border-bottom: 2px solid #2d6a4f;
-            padding-bottom: 0.3rem;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-        h3 {
-            color: #2d6a4f;
-            margin-top: 1.2rem;
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-        p {
-            margin-bottom: 1rem;
-        }
-        ul, ol {
-            margin-left: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        li {
-            margin-bottom: 0.3rem;
-        }
-        .estado {
-            background-color: #e8f5e9;
-            color: #1b4332;
-            padding: 0.3rem 0.8rem;
-            font-size: 0.85rem;
-            font-weight: bold;
-            border-radius: 3px;
-            display: inline-block;
-            margin-bottom: 1rem;
-            border: 1px solid #c8e6c9;
-        }
-        .equipo-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        .tarjeta {
-            border: 1px solid #cccccc;
-            background-color: #fafafa;
-            padding: 1rem;
-            border-radius: 4px;
-        }
-        .tarjeta h4 {
-            color: #1b4332;
-            margin-bottom: 0.2rem;
-            font-size: 1rem;
-        }
-        .tarjeta .rol {
-            color: #2d6a4f;
-            font-weight: bold;
-            font-size: 0.85rem;
-            margin-bottom: 0.5rem;
-        }
-        footer {
-            text-align: center;
-            padding: 1.5rem;
-            font-size: 0.85rem;
-            color: #666666;
-            background-color: #f0f0f0;
-            border-top: 1px solid #dddddd;
-            margin-top: 2rem;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Proyecto Dinámico: propuesta para incorporar un proyector escolar y dinamizar las clases del CED Miguela Rodríguez Araujo.">
+<title>Proyecto Dinámico | CED Miguela Rodríguez Araujo</title>
+<style>
+:root{
+  --navy:#12345a; --blue:#1d5d91; --mid:#347fb2; --sky:#dff1ff;
+  --pale:#f3f9ff; --ice:#eaf5fc; --ink:#203247; --muted:#5c7186;
+  --white:#fff; --line:#d5e5f1; --accent:#69c5e8; --shadow:0 12px 32px rgba(18,52,90,.10);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,"Segoe UI",Arial,sans-serif;background:var(--pale);color:var(--ink);line-height:1.65}
+header{background:linear-gradient(120deg,var(--navy),var(--blue) 65%,var(--mid));color:white;padding:28px 6vw 46px;position:relative;overflow:hidden}
+header:after{content:"";position:absolute;width:330px;height:330px;border:45px solid rgba(255,255,255,.07);border-radius:50%;right:-75px;top:-130px}
+.topline{display:flex;align-items:center;justify-content:space-between;gap:18px;position:relative;z-index:1;flex-wrap:wrap}
+.brand{font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:#d6edff;font-weight:700}
+.status{border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.12);border-radius:999px;padding:7px 13px;font-size:.82rem}
+.hero{max-width:1000px;margin:44px auto 0;position:relative;z-index:1}
+.eyebrow{color:#a9e5ff;font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem}
+h1{font-size:clamp(2.5rem,6vw,4.8rem);line-height:1.04;letter-spacing:-.04em;margin:12px 0 18px}
+.hero p{max-width:720px;color:#e4f3ff;font-size:1.12rem}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
+.btn{display:inline-block;text-decoration:none;font-weight:750;padding:11px 17px;border-radius:11px;transition:.2s}
+.btn-primary{background:white;color:var(--navy)}
+.btn-outline{border:1px solid rgba(255,255,255,.5);color:white}
+.btn:hover{transform:translateY(-2px)}
+nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:0 4vw}
+.nav-inner{max-width:1120px;margin:auto;display:flex;gap:5px;overflow-x:auto}
+nav a{white-space:nowrap;text-decoration:none;color:var(--muted);font-size:.92rem;font-weight:700;padding:16px 13px;border-bottom:3px solid transparent}
+nav a:hover,nav a:focus{color:var(--blue);border-color:var(--accent)}
+main{max-width:1120px;margin:auto;padding:34px 24px 70px}
+section{scroll-margin-top:82px;margin-bottom:26px}
+.section-head{margin-bottom:18px}
+.kicker{font-size:.76rem;text-transform:uppercase;letter-spacing:.13em;color:var(--mid);font-weight:800}
+h2{font-size:clamp(1.65rem,3vw,2.2rem);color:var(--navy);line-height:1.2;margin:5px 0 9px}
+h3{color:var(--blue);font-size:1.12rem;margin:14px 0 8px}
+p{margin:0 0 12px}
+.lead{font-size:1.05rem;color:#405970;max-width:850px}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+.card{background:white;border:1px solid var(--line);border-radius:17px;padding:22px;box-shadow:var(--shadow)}
+.span-12{grid-column:span 12}.span-8{grid-column:span 8}.span-7{grid-column:span 7}.span-6{grid-column:span 6}.span-5{grid-column:span 5}.span-4{grid-column:span 4}
+.callout{background:linear-gradient(135deg,#e3f4ff,#f7fbff);border-left:4px solid var(--mid)}
+.pill{display:inline-block;border-radius:999px;background:var(--sky);color:var(--navy);padding:5px 10px;font-size:.78rem;font-weight:800;margin-bottom:10px}
+ul,ol{padding-left:22px;margin:8px 0 12px}li{margin:5px 0}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:17px}
+.stat{background:var(--ice);border-radius:13px;padding:15px}
+.stat strong{display:block;color:var(--navy);font-size:1.22rem}
+.stat span{font-size:.82rem;color:var(--muted)}
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:13px}
+table{border-collapse:collapse;width:100%;background:white;min-width:600px}
+th,td{text-align:left;padding:13px 15px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#e9f5fd;color:var(--navy);font-size:.88rem}
+tr:last-child td{border-bottom:0}
+.team-card{height:100%;border-top:4px solid var(--accent)}
+.initial{width:43px;height:43px;display:grid;place-items:center;border-radius:13px;background:var(--sky);color:var(--navy);font-weight:900;margin-bottom:13px}
+.role{font-size:.85rem;font-weight:800;color:var(--mid);margin:4px 0 9px}
+.timeline{border-left:2px solid #b8dff5;margin:12px 0 0 8px;padding-left:22px}
+.timeline-item{position:relative;padding:0 0 17px}
+.timeline-item:before{content:"";position:absolute;width:11px;height:11px;border-radius:50%;background:var(--mid);left:-29px;top:7px;box-shadow:0 0 0 4px var(--sky)}
+.small{font-size:.88rem;color:var(--muted)}
+footer{background:var(--navy);color:#d8eafa;padding:28px 24px;text-align:center}
+footer strong{color:white}
+a:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+@media(max-width:760px){main{padding:24px 16px 48px}.span-8,.span-7,.span-6,.span-5,.span-4{grid-column:span 12}.stat-row{grid-template-columns:1fr}.hero{margin-top:34px}.card{padding:18px}nav a{padding:14px 10px}}
+
+/* Navegación por vistas: se muestra una sección a la vez */
+.page-view{display:none;animation:appear .22s ease-out}
+.page-view.is-active{display:block}
+nav .nav-inner{flex-wrap:wrap;gap:4px}
+nav a.active{background:#e2f3ff;color:var(--navy);font-weight:800;border-radius:9px}
+.home-view .card{min-height:190px}
+@keyframes appear{from{opacity:.35;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.page-view{animation:none}}
+</style>
 </head>
 <body>
-
-    <header>
-        <h1>Proyecto Dinamico</h1>
-        <p>Promociòn 1Batin</p>
-    </header>
-
-<nav>      
-	  <button onclick="cambiarPagina('inicio', this)" class="activo">Inicio</button>
-        <button onclick="cambiarPagina('proyecto', this)">El proyecto</button>
-        <button onclick="cambiarPagina('equipo', this)">Equipo</button>
-    </nav>
-
-    <main>
-        <!-- PÁGINA 1: INICIO -->
-        <section id="inicio" class="pagina visible">
-            <span class="estado">Etapa 1 de 3 – Anteproyecto</span>
-            <h2>Precentaciòn</h2>
-          <p>El presente anteproyecto corresponde a la primera etapa del <strong>Proyecto de Promoción</strong> del equipo. Surge de la necesidad de dinamizar las clases en el Colegio Miguela Rodríguez Araujo, donde actualmente se utilizan pizarras y fotocopias como recursos principales que, aunque funcionales, resultan monótonos y limitan la participación activa de los estudiantes.</p>
-
-<p>La propuesta consiste en la compra de un <strong>proyector escolar</strong>, que permitirá mostrar presentaciones, videos, gráficos y materiales interactivos, favoreciendo la comprensión y el aprendizaje significativo enmarcado en el ciclo institucional del <strong>BATIN</strong>.</p>
-            <h3>Nuestros objetivos</h3>
-            <ul>
-                <li>Identificar la necesidad de recursos visuales en el aula.</li>
-                <li>Evaluar la viabilidad técnica, legal y económica de la compra.</li>
-                <li>Elaborar un anteproyecto escrito, un sitio web informativo y una presentación de lanzamiento.</li>
-                <li>Publicar un sitio web de seguimiento con QR para acompañar el proyecto durante los tres años.</li>
-            </ul>
-
-           <h3>Importancia del proyecto</h3>
-<p>Este proyecto es de suma importancia porque busca superar la monotonía de las clases tradicionales. La incorporación de un proyector permitira integrar presentaciones, videos y gráficos interactivos, aumentando la motivación estudiantil y fortaleciendo la calidad de los aprendizajes en el aula.</p>
-
-            <!-- PÁGINA 2: EL PROYECTO -->
-        <section id="proyecto" class="pagina">
-            <h2>El proyecto</h2>
-
-            <h3>El problema</h3>
-<p>Las clases en el colegio se desarrollan principalmente con **recursos tradicionales como pizarras y fotocopias**[cite: 7]. Esta falta de herramientas audiovisuales genera **monotonía y baja motivación** en los estudiantes, limitando su participación activa y la comprensión de los contenidos[cite: 7].</p>
-
-          
-    </script>
-
+<header id="inicio">
+  <div class="topline">
+    <div class="brand">CED Miguela Rodríguez Araujo · 1.º BATIN</div>
+    <div class="status">Primera etapa · Anteproyecto</div>
+  </div>
+  <div class="hero">
+    <div class="eyebrow">Aprender de forma más visual</div>
+    <h1>Proyecto<br>Dinámico</h1>
+    <p>Una propuesta estudiantil para incorporar un proyector escolar, dinamizar las clases y fortalecer la comprensión de los contenidos mediante recursos audiovisuales.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#proyecto">Conocer el proyecto ↓</a>
+      <a class="btn btn-outline" href="#equipo">Conocer al equipo</a>
+    </div>
+  </div>
+</header>
+<nav aria-label="Navegación principal"><div class="nav-inner">
+  <a href="#inicio" class="active">Inicio</a><a href="#proyecto">El proyecto</a><a href="#objetivos">Objetivos</a><a href="#alcance">Alcance</a><a href="#viabilidad">Viabilidad</a><a href="#etapas">Plan a 3 años</a><a href="#equipo">Equipo</a><a href="#cronograma">Cronograma</a><a href="#seguimiento">Seguimiento</a><a href="#metodologia">Metodología</a><a href="#ia">Herramientas e IA</a>
+</div></nav>
+<main>
+<section id="inicio" class="page-view home-view">
+  <div class="section-head"><div class="kicker">Bienvenido/a</div><h2>Explorá el proyecto por secciones</h2><p class="lead">La información está organizada en páginas para que puedas consultar cada tema sin tener todo el contenido junto al principio.</p></div>
+  <div class="grid">
+    <article class="card span-6"><h3>¿Qué vas a encontrar?</h3><p>La propuesta, sus objetivos, el estudio de viabilidad, el plan de tres años, el equipo y el seguimiento de las actividades.</p><p class="small">Usá el menú azul para entrar a cada sección.</p></article>
+    <article class="card callout span-6"><span class="pill">Estado actual</span><h3>Anteproyecto en análisis</h3><p>La compra del proyector todavía no está confirmada. Depende de la aprobación institucional y de los recursos disponibles.</p><a class="btn btn-primary" href="#proyecto">Empezar a explorar →</a></article>
+  </div>
+</section>
+<section id="proyecto" class="page-view">
+  <div class="section-head"><div class="kicker">01 · Presentación</div><h2>¿De qué trata Proyecto Dinámico?</h2><p class="lead">El anteproyecto corresponde a la primera etapa del Proyecto de Promoción del equipo. Nace de la necesidad de hacer que las clases sean más participativas y atractivas.</p></div>
+  <div class="grid">
+    <article class="card span-7">
+      <span class="pill">La situación actual</span>
+      <p>En el Colegio Miguela Rodríguez Araujo se utilizan recursos tradicionales, como la pizarra y las fotocopias. El equipo considera que diversificar los recursos didácticos podría favorecer la atención, la participación y la comprensión de determinados contenidos. Esta necesidad deberá contrastarse con las opiniones de docentes y estudiantes durante las siguientes etapas.</p>
+      <h3>La propuesta</h3>
+      <p>Gestionar la incorporación de un <strong>proyector escolar</strong> para mostrar presentaciones, videos, gráficos y otros recursos audiovisuales que complementen las estrategias docentes. En esta primera etapa se presenta la propuesta y se analiza su viabilidad; la compra y la implementación en el aula quedan sujetas a la aprobación institucional y a la disponibilidad de recursos.</p>
+    </article>
+    <aside class="card callout span-5">
+      <span class="pill">Ficha del proyecto</span>
+      <p><strong>Institución:</strong><br>CED Miguela Rodríguez Araujo</p>
+      <p><strong>Proyecto:</strong><br>Proyecto Dinámico</p>
+      <p><strong>Curso:</strong><br>1.º BATIN · Mañana/Tarde</p>
+      
+      <p><strong>Etapa actual:</strong><br>Anteproyecto, sitio web y presentación</p>
+      <p><strong>Estado:</strong><br>Propuesta en análisis; compra aún no confirmada</p>
+    </aside>
+  </div>
+</section>
+<section id="objetivos" class="page-view">
+  <div class="section-head"><div class="kicker">02 · Propósito</div><h2>Objetivos del proyecto</h2></div>
+  <div class="grid">
+    <article class="card span-6"><h3>Objetivo general</h3><p>Incorporar un proyector al aula para dinamizar las clases y mejorar la comprensión de los contenidos, fortaleciendo la calidad educativa en el Colegio Miguela Rodríguez Araujo.</p></article>
+    <article class="card span-6"><h3>Objetivos específicos</h3><ul><li>Identificar la necesidad de recursos visuales en el aula.</li><li>Evaluar la viabilidad técnica, legal y económica de la compra.</li><li>Elaborar un anteproyecto, un sitio web informativo y una presentación de lanzamiento.</li><li>Publicar un sitio de seguimiento con código QR para acompañar el proyecto durante tres años.</li></ul></article>
+    <article class="card span-12"><h3>¿Por qué es importante?</h3><p>Un proyector permitiría integrar materiales visuales y audiovisuales a las explicaciones, actividades y exposiciones. No se afirma que el equipo garantice por sí solo mejores resultados: sus beneficios dependerán de la planificación docente, la pertinencia de los materiales y el uso pedagógico que se realice.</p></article>
+  </div>
+</section>
+<section id="alcance" class="page-view">
+  <div class="section-head"><div class="kicker">03 · Primera etapa</div><h2>Alcance y funcionalidades</h2><p class="lead">Durante el primer año se prepara y comunica la propuesta. La compra y la implementación en el aula quedan previstas para una etapa posterior.</p></div>
+  <div class="grid">
+    <article class="card span-6"><h3>Incluye en el 1.º año</h3><ul><li>Definición del problema y propuesta de solución.</li><li>Estudio de viabilidad técnica, legal y económica.</li><li>Anteproyecto escrito.</li><li>Sitio web informativo con cronograma y avances.</li><li>Presentación de lanzamiento de hasta 8 diapositivas con código QR.</li></ul></article>
+    <article class="card span-6"><h3>No incluye todavía</h3><ul><li>Compra efectiva del proyector: se prevé para el 2.º curso.</li><li>Desarrollo de software o aplicaciones.</li><li>Implementación práctica del equipo en el aula durante esta primera etapa.</li></ul></article>
+    <article class="card span-12"><h3>Funcionalidades previstas</h3><div class="table-wrap"><table><thead><tr><th>Funcionalidad</th><th>Prioridad</th><th>Año previsto</th></tr></thead><tbody><tr><td>Uso del proyector para presentaciones, videos y recursos audiovisuales.</td><td>Imprescindible</td><td>2.º año</td></tr><tr><td>Capacitación docente en recursos digitales.</td><td>Muy importante</td><td>2.º año</td></tr><tr><td>Integración con plataformas educativas y materiales interactivos.</td><td>Opcional</td><td>3.º año</td></tr><tr><td>Aplicación móvil para controlar el proyector o compartir materiales.</td><td>Fuera del alcance actual</td><td>No previsto</td></tr></tbody></table></div></article>
+  </div>
+</section>
+<section id="viabilidad" class="page-view">
+  <div class="section-head"><div class="kicker">04 · Evaluación</div><h2>Estudio de viabilidad</h2><p class="lead">El anteproyecto analiza si la propuesta puede llevarse adelante desde los aspectos técnicos, legales y económicos.</p></div>
+  <div class="grid">
+    <article class="card span-4"><div class="initial">01</div><h3>Viabilidad técnica</h3><p>La viabilidad técnica dependerá de comprobar qué equipos y conexiones están disponibles, además de las condiciones de las aulas: iluminación, distancia de proyección, superficie adecuada y acceso a electricidad. Antes de elegir un modelo, se deben comparar brillo, resolución, conectividad, vida útil, garantía y servicio técnico. Estos aspectos aún requieren verificación.</p></article>
+    <article class="card span-4"><div class="initial">02</div><h3>Viabilidad legal</h3><p>La compra, la instalación y el uso deberán contar con la autorización de la institución y respetar sus procedimientos de adquisición, seguridad y cuidado de los bienes. Los materiales proyectados deberán respetar los derechos de autor, las licencias y la privacidad de estudiantes y docentes. Los requisitos institucionales deben confirmarse con la dirección.</p></article>
+    <article class="card span-4"><div class="initial">03</div><h3>Viabilidad económica</h3><p>Se compararon opciones de proyectores con distintos precios estimados. Los valores son referenciales y deberán confirmarse con proveedores antes de tomar una decisión de compra.</p></article>
+    <article class="card span-12"><h3>Comparación de opciones de proyectores</h3><div class="table-wrap"><table><thead><tr><th>Modelo</th><th>Características indicadas</th><th>Precio estimado</th></tr></thead><tbody><tr><td>Epson PowerLite X49</td><td>3600 lúmenes; pensado para aulas grandes.</td><td><strong>Gs. 3.030.000</strong></td></tr><tr><td>Optoma ZX300</td><td>3500 lúmenes; opción intermedia.</td><td>Gs. 648.000</td></tr><tr><td>Xiaomi Wanbo Cube 1</td><td>350 lúmenes; opción económica.</td><td>Gs. 222.400</td></tr></tbody></table></div><p class="small" style="margin-top:10px">Nota: los precios son estimaciones del borrador, no cotizaciones confirmadas. Antes de decidir, se deben registrar proveedor, fecha, moneda, garantía, disponibilidad y enlace o comprobante de cada precio.</p></article>
+  </div>
+</section>
+<section id="etapas" class="page-view">
+  <div class="section-head"><div class="kicker">05 · Proyección</div><h2>Plan de trabajo a tres años</h2><p class="lead">El sitio web acompañará el avance del proyecto desde la propuesta inicial hasta la evaluación de los resultados.</p></div>
+  <div class="grid">
+    <article class="card span-4"><span class="pill">1.º año · Análisis</span><h3>Anteproyecto y lanzamiento</h3><ul><li>Estudio de viabilidad.</li><li>Publicación del sitio web inicial.</li><li>Preparación de la presentación y del QR.</li></ul><p class="small"><strong>Evidencias:</strong> anteproyecto, sitio activo y QR funcional.</p></article>
+    <article class="card span-4"><span class="pill">2.º año · Desarrollo</span><h3>Prototipo y primeras experiencias</h3><ul><li>Avanzar hacia la adquisición y uso del proyector.</li><li>Actualizar el sitio con testimonios y recursos multimedia.</li><li>Registrar experiencias de docentes y estudiantes.</li></ul><p class="small"><strong>Evidencias:</strong> publicaciones, videos y registros de uso.</p></article>
+    <article class="card span-4"><span class="pill">3.º año · Evaluación</span><h3>Resultados y cierre</h3><ul><li>Reunir estadísticas y beneficios observados.</li><li>Elaborar recomendaciones para otros cursos.</li><li>Mejorar accesibilidad y preparar la versión final.</li></ul><p class="small"><strong>Evidencias:</strong> informe, gráficos y sitio consolidado.</p></article>
+  </div>
+</section>
+<section id="equipo" class="page-view">
+  <div class="section-head"><div class="kicker">06 · Colaboración</div><h2>Equipo de trabajo</h2><p class="lead">El equipo organiza tareas, comparte materiales y revisa los entregables de manera colaborativa.</p></div>
+  <div class="grid">
+    <article class="card team-card span-4"><div class="initial">LV</div><h3>Liz Fabiola Vázquez Gauto</h3><div class="role">Organización y anteproyecto</div><p>Participación en la definición del tema, el estudio de viabilidad y la elaboración del documento.</p></article>
+    <article class="card team-card span-4"><div class="initial">RO</div><h3>Ruth Violeta Ovelar Esquivel</h3><div class="role">Organización y seguimiento</div><p>Colaboración en el desarrollo de la propuesta, la revisión de contenidos y el seguimiento de tareas.</p></article>
+    <article class="card team-card span-4"><div class="initial">TN</div><h3>Thiago Matias Noguera Duartes</h3><div class="role">Desarrollo del proyecto</div><p>Trabajo colaborativo en la preparación de los productos y la presentación del proyecto.</p></article>
+    <article class="card span-12"><h3>Metodología de trabajo</h3><p>El equipo prevé organizarse por etapas, con revisión documental, consultas a la comunidad educativa si se autorizan, comparación de alternativas y elaboración progresiva de los tres productos: anteproyecto, sitio web y presentación. Las tareas se registrarán en una hoja compartida con actividad, responsable, fechas, estado, evidencia y observaciones. Las decisiones y los cambios quedarán registrados en una bitácora.</p></article>
+  </div>
+</section>
+<section id="cronograma" class="page-view">
+  <div class="section-head"><div class="kicker">07 · Organización</div><h2>Cronograma de la primera etapa</h2></div>
+  <div class="card"><div class="timeline">
+    <div class="timeline-item"><strong>Julio</strong><p>Definición del tema y ficha del proyecto. Responsables indicados: Liz Vázquez y Ruth Ovelar.</p></div>
+    <div class="timeline-item"><strong>Julio–agosto</strong><p>Estudio de viabilidad técnica, legal y económica. Los datos técnicos y precios deben verificarse con fuentes actuales.</p></div>
+    <div class="timeline-item"><strong>Agosto</strong><p>Redacción y revisión del anteproyecto; desarrollo inicial del sitio web.</p></div>
+    <div class="timeline-item"><strong>Septiembre</strong><p>Publicación prevista del sitio en GitHub Pages y generación del código QR. La URL y el funcionamiento deben comprobarse antes de marcar la tarea como completada.</p></div>
+    <div class="timeline-item"><strong>Octubre</strong><p>Preparación de la presentación de lanzamiento y demostración del sitio, con QR probado.</p></div>
+  </div><p class="small">Los meses se mantienen según el cronograma incluido en el documento del proyecto.</p></div>
+</section>
+<section id="seguimiento" class="page-view">
+  <div class="section-head"><div class="kicker">08 · Seguimiento</div><h2>Bitácora y actualización del sitio</h2></div>
+  <div class="grid">
+    <article class="card span-7"><h3>¿Qué se publicará?</h3><ul><li>Actividades realizadas y avances por etapa.</li><li>Resumen del estudio de viabilidad técnica, legal y económica.</li><li>Testimonios reales de docentes y estudiantes, si se recopilan con autorización.</li><li>Recursos multimedia, estadísticas y recomendaciones cuando existan evidencias.</li></ul><h3>Registro inicial</h3><p>El documento registra una revisión y reorganización del anteproyecto el 20/09/2026. Las demás actividades de la bitácora figuran como planificadas o pendientes hasta que haya evidencia verificable.</p></article>
+    <article class="card span-5 callout"><h3>Datos por completar</h3><p>Para publicar la versión definitiva, el equipo debe agregar la URL real del sitio, el enlace o QR funcional, el editor utilizado y las evidencias que vaya generando.</p><p class="small">El sitio no afirma que el proyector ya fue comprado. La adquisición se prevé para el segundo curso y depende de la aprobación institucional y la disponibilidad de recursos.</p></article>
+  </div>
+</section>
+<section id="metodologia" class="page-view">
+  <div class="section-head"><div class="kicker">09 · Método</div><h2>Fases de trabajo y control de avances</h2><p class="lead">Las tareas se considerarán terminadas únicamente cuando exista una evidencia verificable y revisada.</p></div>
+  <div class="grid">
+    <article class="card span-6"><h3>Fases previstas</h3><ol><li>Diagnóstico de la necesidad y consulta autorizada a la comunidad educativa.</li><li>Investigación de características, precios y garantías con fuentes identificables.</li><li>Análisis de viabilidad técnica, institucional y económica.</li><li>Elaboración del anteproyecto, sitio web y presentación.</li><li>Revisión de ortografía, coherencia, enlaces, cálculos, referencias y QR.</li><li>Seguimiento y actualización del sitio y la bitácora.</li></ol></article>
+    <article class="card span-6"><h3>Condiciones pendientes</h3><ul><li>Verificar precios y especificaciones con fuentes actuales.</li><li>Confirmar compatibilidad técnica y condiciones del aula.</li><li>Confirmar autorizaciones institucionales necesarias.</li><li>Publicar el sitio y probar enlaces y código QR.</li><li>Comprobar coherencia entre el sitio y la presentación finales.</li></ul><p class="small">Las actividades pendientes no deben marcarse como completadas sin evidencia real.</p></article>
+  </div>
+</section>
+<section id="ia" class="page-view">
+  <div class="section-head"><div class="kicker">10 · Transparencia</div><h2>Uso responsable de herramientas digitales e IA</h2></div>
+  <article class="card"><p>El anteproyecto declara el uso de herramientas de inteligencia artificial como apoyo para organizar ideas y mejorar la redacción de algunas partes. El equipo debe revisar la información, comprobar su relación con la propuesta y validar el contenido antes de publicarlo.</p><p class="small">Referencias mencionadas en el anteproyecto: PBLWorks / Buck Institute for Education (2021), Ministerio de Educación y Ciencias (2021), RDN Noticias (2024) y UNESCO, entre otras. Consultar el documento escrito para la lista completa de referencias.</p></article>
+</section>
+</main>
+<footer><p><strong>Proyecto Dinámico</strong> · 1.º BATIN</p><p>CED Miguela Rodríguez Araujo</p><p class="small" style="color:#c0d9ed;margin-top:8px">Sitio informativo de seguimiento del Proyecto de Promoción.</p></footer>
+<script>
+(function(){
+  const views = Array.from(document.querySelectorAll('main .page-view'));
+  const links = Array.from(document.querySelectorAll('nav a[href^="#"], .hero-actions a[href^="#"], main a[href^="#"]'));
+  function showPage(id, updateHash){
+    if(!document.getElementById(id) || !views.includes(document.getElementById(id))) id='inicio';
+    views.forEach(v=>v.classList.toggle('is-active', v.id===id));
+    document.querySelectorAll('nav a').forEach(a=>{
+      const active=a.getAttribute('href')==='#'+id;
+      a.classList.toggle('active',active);
+      if(active) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current');
+    });
+    if(updateHash && location.hash!=='#'+id) history.pushState({page:id},'', '#'+id);
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  links.forEach(a=>a.addEventListener('click',function(e){
+    const id=this.getAttribute('href').slice(1);
+    if(views.some(v=>v.id===id)){e.preventDefault();showPage(id,true);}
+  }));
+  window.addEventListener('popstate',()=>showPage(location.hash.slice(1)||'inicio',false));
+  window.addEventListener('hashchange',()=>showPage(location.hash.slice(1)||'inicio',false));
+  showPage(location.hash.slice(1)||'inicio',false);
+})();
+</script>
 </body>
 </html>
